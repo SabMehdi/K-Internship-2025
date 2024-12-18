@@ -5,14 +5,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
   <html>
   <body>
-    <table>
+ <xsl:for-each select="library/category">
+    <table border="1">
       <tr>
-        <td><xsl:value-of select="title"/></td>
-        <td><xsl:value-of select="author"/></td>
-        <td><xsl:value-of select="year"/></td>
-        <td><xsl:value-of select="rating"/></td>
+        <th>title</th>
+        <th>author</th>
+        <th>year</th>
+        <th>rating</th>
       </tr>
-        <xsl:for-each select="library/category/book">
+        <xsl:for-each select="book">
             <tr>
                 <td><xsl:value-of select="title"/></td>
                 <td><xsl:value-of select="author"/></td>
@@ -20,8 +21,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
                 <td><xsl:value-of select="rating"/></td>
             </tr>
         </xsl:for-each>
-    <table>
+    </table>
+</xsl:for-each>
 </body>
 </html>
 </xsl:template>
+
 </xsl:stylesheet>
+
